@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.webuibuilder</groupId>
+	<artifactId>webuibuilder</artifactId>
+	<name>UIMockedComponent.groovy</name>
+	<version>1.0-SNAPSHOT</version>
+
+
+	<properties>
+		<groovy-version>1.5.7</groovy-version>
+
+		<!--  WCM 1.2.1 -->
+		<org.exoplatform.kernel.version>2.0.8</org.exoplatform.kernel.version>
+		<org.exoplatform.core.version>2.1.6</org.exoplatform.core.version>
+		<org.exoplatform.ws.version>1.3.4</org.exoplatform.ws.version>
+		<org.exoplatform.jcr.version>1.10.5.1</org.exoplatform.jcr.version>
+		<org.exoplatform.pc.version>2.0.7</org.exoplatform.pc.version>
+		<org.exoplatform.portal.version>2.5.6.2</org.exoplatform.portal.version>
+		<org.exoplatform.ecm.dms.version>2.5.2.1</org.exoplatform.ecm.dms.version>
+	</properties>
+
+
+	<dependencies>
+
+		<!-- pour voir le mbean jmx de gestion du cache -->
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.component.scripting</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecm.dms.core</groupId>
+			<artifactId>exo.ecm.dms.core.portlet.ecm.core.main</artifactId>
+			<version>${org.exoplatform.ecm.dms.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy-version}</version>
+		</dependency>
+
+
+		<!--
+			dependency> <groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.commons</artifactId>
+			<version>${org.exoplatform.kernel.version}</version>
+			<scope>provided</scope> </dependency
+		-->
+
+		<!--
+			dependency> <groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.webui.core</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope> </dependency
+		-->
+		<dependency>
+			<groupId>org.exoplatform.ecm.dms.core</groupId>
+			<artifactId>exo.ecm.dms.core.portlet.ecm.core.main</artifactId>
+			<version>${org.exoplatform.ecm.dms.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecm</groupId>
+			<artifactId>exo.ecm.wcm.webui.wcm</artifactId>
+			<version>1.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!--
+			dependency> <groupId>org.codehaus.groovy.maven.runtime</groupId>
+			<artifactId>gmaven-runtime-1.5</artifactId> <version>1.0</version>
+			<scope>provided</scope> </dependency
+		-->
+
+		<!--  MetaBuilder -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovytools-builder</artifactId>
+			<version>1.1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.8.2</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<additionalProjectnatures>
+						<projectnature>
+							org.eclipse.jdt.groovy.core.groovyNature
+                        </projectnature>
+					</additionalProjectnatures>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.codehaus.groovy.maven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generateStubs</goal>
+							<goal>compile</goal>
+							<goal>generateTestStubs</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- permet de compiler avec grovy l.5 supporte par eXo-->
+				<configuration>
+					<providerSelection>1.5</providerSelection>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+</project>
