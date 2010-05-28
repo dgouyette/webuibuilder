@@ -12,9 +12,7 @@ class WebUIBuilder {
   def WebuiRequestContext context
   def MetaBuilder mb
 
-  
-  
-  //On ne type pas l'objet, cela va servir pour les tests
+
   def uiForm
 
 
@@ -26,23 +24,21 @@ class WebUIBuilder {
 
     }
 
-  //Constructeur par defaut
+  //default constructor
   WebUIBuilder(){
     context = WebuiRequestContext.getCurrentInstance()
     init()
   }
 
 
-  //Constructeur utilise par les IHM
+  //Used in real life
   WebUIBuilder(newUiComponent){
     context = WebuiRequestContext.getCurrentInstance()
     uiForm = newUiComponent
     init()
   }
 
-  /**
-   * Constructeur pour les tests
-   */
+  //For test
   WebUIBuilder(WebuiRequestContext newContext,  newUiComponent){
     this.context = newContext
     this.uiForm= newUiComponent
@@ -58,14 +54,15 @@ class WebUIBuilder {
     
 
     mb.define {
-      //Defini le schema de l'objet form
+      //define form shema
       form(factory: Form) {
         
 
-        //L'objet form contient une liste de formItem : au minimum 1
+        //Form must contain at least one item of formItem 
         collections {
           formItemList(min: 1) {
-            //un objet form contient une list d'objet formItem dont le scheme est defini ci dessous
+
+            //form contains an object list formItem, schema defined bellow
             formItem(schema: 'formItem')
           }
         }
@@ -77,7 +74,6 @@ class WebUIBuilder {
         properties {
           name(req: true)
           label(req: true)
-          //Check verifie la liste des valeurs autorisee pour la propriete type
           type(req: true, check: ['text','textarea',  'password', 'calendar', 'wysiwyg'])
           validate(req: true, check: ['not-empty', 'name', 'email', 'number', 'empty', 'datetime'])
           jcrPath(req: false)

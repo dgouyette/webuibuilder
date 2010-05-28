@@ -13,8 +13,8 @@ class FormItem {
   def editable
 
   static void processTimestamp(WriterPrinter out, uiForm){
-    //UIDialogForm ui
-     Calendar now = Calendar.getInstance();
+
+    Calendar now = Calendar.getInstance();
      SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd '-' hh'h'mm'm'ss");
      formatter.format(now.getTime());
      String timestampName = formatter.format(now.getTime())

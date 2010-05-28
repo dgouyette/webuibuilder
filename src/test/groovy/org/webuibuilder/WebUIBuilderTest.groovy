@@ -30,7 +30,7 @@ class WebUIBuilderTest extends TestCase{
   /**
    * Tout va bien rien ne manque
    */
-  void testFormCorrect() {
+  void testFormOk() {
         def aForm = mb.build {
           form{
              formItem (name: 'name', label : 'name', type: 'text', validate: 'not-empty' , jcrPath: "/node")
@@ -49,7 +49,7 @@ class WebUIBuilderTest extends TestCase{
 
  
 
-  void testAttributManquantFormItem(){
+  void testMissingAttributeFormItem(){
    try{
       def aForm = mb.build {
           form{
@@ -63,9 +63,9 @@ class WebUIBuilderTest extends TestCase{
   }
 
   /**
-   * Test que si le type de formItem n'est pas reference, cela ne fonctionne pas
+   *  FormItem must be defined
    */
-  void testTypeDeFormItemIncorrect(){
+  void testTypeFormItemIncorrect(){
     try{  
     def aForm = mb.build {
           form{

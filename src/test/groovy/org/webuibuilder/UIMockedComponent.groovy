@@ -4,7 +4,7 @@ import org.exoplatform.ecm.webui.component.explorer.popup.actions.UIDocumentForm
 import org.exoplatform.webui.application.WebuiRequestContext
 
 /**
-* Simulation de composant WebUI pour les TU 
+* MocketWebUi Component fot Unit tests
 **/
 class UIMockedComponent {
 
@@ -37,7 +37,7 @@ class UIMockedComponent {
   }
 
   /**
-  *  Permet d'ajouter dynamiquement des methodes
+  *  dynamicly add method
   **/
   Object invokeMethod(String what, Object who){
     //println "what : $what, who : $who"
@@ -47,7 +47,7 @@ class UIMockedComponent {
     }
 
 
-    //On extrait le type du composant en enlevant add & Field
+    //extract component type wthout add & field
     this.type= what.replace("add","").replace("Field","")
     this.name= who[0]
     this.args = who[2]
