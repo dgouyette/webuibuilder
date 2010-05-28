@@ -2,6 +2,9 @@ package org.webuibuilder
 
 import org.exoplatform.commons.utils.WriterPrinter
 import java.text.SimpleDateFormat
+import org.exoplatform.webui.form.UIForm
+import org.exoplatform.ecm.webui.form.UIDialogForm
+import org.exoplatform.ecm.webui.utils.DialogFormUtil
 
 class FormItem {
   def name
@@ -13,7 +16,7 @@ class FormItem {
   def editable
 
   static void processTimestamp(WriterPrinter out, uiForm){
-
+    DialogFormUtil util
     Calendar now = Calendar.getInstance();
      SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd '-' hh'h'mm'm'ss");
      formatter.format(now.getTime());
@@ -37,12 +40,17 @@ class FormItem {
     List<String> args = new ArrayList<String>();
    
     formItem.metaPropertyValues.each {
+      //TODO review this condition
+      if (it.value!=null){
       switch (it.name){
+
         //Liste des proprietes prise en compte pour le moment
         case ["jcrPath","validate","editable",  ]:
           args.add("$it.name=$it.value")
            break
       }
+      }
+
     }
 
    
