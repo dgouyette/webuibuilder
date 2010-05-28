@@ -75,7 +75,7 @@ class WebUIBuilder {
           name(req: true)
           label(req: true)
           type(req: true, check: ['text','textarea',  'password', 'calendar', 'wysiwyg'])
-          validate(req: true, check: ['not-empty', 'name', 'email', 'number', 'empty', 'datetime'])
+          validate(req: false, check: ['not-empty', 'name', 'email', 'number', 'empty', 'datetime'])
           jcrPath(req: false)
           visible(req: false, check: [true, false], def: true)
           editable(req: false, check: [true, false, 'if-not-null', 'if-null'], def: true)
