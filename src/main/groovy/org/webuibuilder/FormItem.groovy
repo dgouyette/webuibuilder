@@ -17,12 +17,9 @@ class FormItem {
 
   static void processTimestamp(WriterPrinter out, uiForm){
     DialogFormUtil util
-    Calendar now = Calendar.getInstance();
-     SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd '-' hh'h'mm'm'ss");
-     formatter.format(now.getTime());
-     String timestampName = formatter.format(now.getTime())
+
     
-     String[] fieldName = ["jcrPath=/node", "mixintype=mix:i18n", "editable=if-null", "validate=empty,name", timestampName]
+     String[] fieldName = ["jcrPath=/node",  "editable=if-null", "validate=empty,name", ""]
      out.write """
             <tr>
               <td class="FieldLabel">Nom</td>
@@ -52,11 +49,6 @@ class FormItem {
       }
 
     }
-
-   
-    
-    
-     
 
     out.write """
             <tr>

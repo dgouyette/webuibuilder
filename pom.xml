@@ -5,7 +5,7 @@
     <groupId>org.webuibuilder</groupId>
     <artifactId>webuibuilder</artifactId>
     <name>UIMockedComponent.groovy</name>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-M1</version>
     <packaging>jar</packaging>
 
 

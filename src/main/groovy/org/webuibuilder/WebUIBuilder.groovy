@@ -56,6 +56,13 @@ class WebUIBuilder {
     mb.define {
       //define form shema
       form(factory: Form) {
+        properties{
+          //TODO Implement specify nodeType (No check, because we should be able to inject our own nodeTypes)
+          //nodeType(req : false)
+          //TODO implement mixins
+          //collections(min: 0) {
+          //
+        }
         
 
         //Form must contain at least one item of formItem 

@@ -47,7 +47,7 @@ class WebUIBuilderTest extends TestCase{
   void testResultatXmlValide(){}
 
 
- 
+  
 
   void testMissingAttributeFormItem(){
    try{

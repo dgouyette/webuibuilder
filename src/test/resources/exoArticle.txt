@@ -90,7 +90,6 @@ form{
             formItem ( name: 'title', label : 'title', type: 'text', validate: 'empty' , jcrPath: "/node/exo:title")
 			formItem ( name: 'summary', label : 'summary', type: 'text' , jcrPath: "/node/exo:summary")
 			formItem ( name: 'content', label : 'content', type: 'wysiwyg' , jcrPath: "/node/exo:text")
-
           }
 }
 %>
