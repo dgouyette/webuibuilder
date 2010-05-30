@@ -24,7 +24,7 @@ Rendez vous dans Le template groovy se trouve dans le  Drive "administration de 
 
 Et remplacer le code présent par le suivant :
 
-bc.
+<code>
 <%
 import org.webuibuilder.*
 WebUIBuilder wb = new WebUIBuilder(uicomponent)
@@ -36,6 +36,7 @@ form{
           }
 }
 %>
+</code>
 
 
 
