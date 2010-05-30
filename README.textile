@@ -1,4 +1,4 @@
-h2. Mise en place du DSL
+h2. Ajout du DSL à la platforme
 
 *Sous Tomcat :*
 
