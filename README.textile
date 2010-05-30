@@ -1,0 +1,57 @@
+h2. Mise en place du DSL
+
+**Sous Tomcat :**
+
+Copier les librairies
+* webuibuilder-1.0-M1.jar (http://github.com/downloads/dgouyette/webuibuilder/webuibuilder-1.0-M1.jar)
+* groovytools-builder-1.1.6.jar (http://sourceforge.net/projects/groovytools/)
+
+dans le répertoire lib de tomcat.
+
+
+**Sous Jboss :**
+
+Il faut exploser (extraire le contenu de l'ear ) l'EAR exo WCM dans le répertoire deploy de jboss
+Ajouter un répertoire lib et copier les deux jar du dsl et groovytools-builder
+
+
+Démarrer exoplatform WCM
+
+
+Ne reste plus qu'à utiliser ce DSL
+
+Rendez vous dans Le template groovy se trouve dans le  Drive "administration de WCM", path : /exo:ecm/templates/exo:article/dialogs/dialog1.gtmpl
+
+Et remplacer le code présent par le suivant :
+
+<%
+import org.webuibuilder.*
+WebUIBuilder wb = new WebUIBuilder(uicomponent)
+
+wb.build{
+
+form{
+            formItem ( name: 'title', label : 'title', type: 'text', validate: 'empty' , jcrPath: "/node/exo:title")
+			formItem ( name: 'summary', label : 'summary', type: 'text' , jcrPath: "/node/exo:summary")
+			formItem ( name: 'content', label : 'content', type: 'wysiwyg' , jcrPath: "/node/exo:text")
+          }
+}
+%>
+
+Pour que celui-ci soit pris en compte, il faut vider  le cache associé au template. Cette opération est possible via les beans jmx mis à disposition par exo.
+Il faut donc appeler la méthode clearCache() du mbean org.exoplatform.groovyscript.text.TemplateService
+
+Sous jboss vous pouvez utiliser la console web jmx
+
+Sous tomcat, il faudra définir JAVA_OPTS dans le fichier exo.sh du tomcat de la facon suivante :
+
+
+JAVA_OPTS="-Xshare:auto -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Xms128m -Xmx512m -XX:MaxPermSize=256m $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
+
+
+Il faudrar ensuite lancer une jconsole, se connecter en remote sur localhost:9999 (sans mot de passe) et invoquer la méthode clearCache() du mbean org.exoplatform.groovyscript.text.TemplateService
+
+
+
+
+
