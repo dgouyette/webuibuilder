@@ -52,6 +52,18 @@ JAVA_OPTS="-Xshare:auto -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxr
 
 Il faudrar ensuite lancer une jconsole, se connecter en remote sur localhost:9999 (sans mot de passe) et invoquer la méthode clearCache() du mbean org.exoplatform.groovyscript.text.TemplateService
 
+h2. Utilisation du DSL
+
+Form  : doit contenir une collection d'au moins 1 FormItem
+FormItem : 
+* name (obligatoire),
+* label (obligatoire),
+* type (obligatoire), les valeurs possibles sont : text, textarea, calendar, password ou calendar
+* jcrPath (non obligatoire),
+* visible (non obligatoire), les valeurs possibles sont true ou false
+* editable (non obligatoire), les valeurs possibles sont true, false, if-not-null, if-null
+
+
 
 
 
