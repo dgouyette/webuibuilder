@@ -24,6 +24,7 @@ Rendez vous dans Le template groovy se trouve dans le  Drive "administration de 
 
 Et remplacer le code présent par le suivant :
 
+<pre>
 <code>
 <%
 import org.webuibuilder.*
@@ -37,7 +38,7 @@ form{
 }
 %>
 </code>
-
+</pre>
 
 
 Pour que celui-ci soit pris en compte, il faut vider  le cache associé au template. Cette opération est possible via les beans jmx mis à disposition par exo.
