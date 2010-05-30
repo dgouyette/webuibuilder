@@ -1,6 +1,6 @@
 h2. Mise en place du DSL
 
-**Sous Tomcat :**
+*Sous Tomcat :*
 
 Copier les librairies
 * webuibuilder-1.0-M1.jar (http://github.com/downloads/dgouyette/webuibuilder/webuibuilder-1.0-M1.jar)
@@ -9,7 +9,7 @@ Copier les librairies
 dans le répertoire lib de tomcat.
 
 
-**Sous Jboss :**
+*Sous Jboss :*
 
 Il faut exploser (extraire le contenu de l'ear ) l'EAR exo WCM dans le répertoire deploy de jboss
 Ajouter un répertoire lib et copier les deux jar du dsl et groovytools-builder
@@ -50,7 +50,7 @@ JAVA_OPTS="-Xshare:auto -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxr
 </code>
 </pre>
 
-Il faudrar ensuite lancer une jconsole, se connecter en remote sur localhost:9999 (sans mot de passe) et invoquer la méthode clearCache() du mbean org.exoplatform.groovyscript.text.TemplateService
+Il faudra ensuite lancer une jconsole, se connecter en remote sur localhost:9999 (sans mot de passe) et invoquer la méthode clearCache() du mbean org.exoplatform.groovyscript.text.TemplateService
 
 h2. Utilisation du DSL
 
